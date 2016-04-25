@@ -28,8 +28,7 @@ System.register(["angular2/core", "angular2/router"], function(exports_1, contex
                 DashboardComponent = __decorate([
                     core_1.Component({
                         selector: "my-dashboard",
-                        templateUrl: "app/dashboard.component.html",
-                        styleUrls: ["app/dashboard.component.css"]
+                        templateUrl: "app/dashboard/dashboard.component.html"
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], DashboardComponent);

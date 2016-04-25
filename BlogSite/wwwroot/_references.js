@@ -7,7 +7,6 @@
 /// <reference path="app/blog/blog-details.component.js" />
 /// <reference path="app/blog/blog-list.component.js" />
 /// <reference path="app/boot.js" />
-/// <reference path="app/dashboard.component.js" />
 /// <reference path="app/dashboard/dashboard.component.js" />
 /// <reference path="app/models/blog.js" />
 /// <reference path="app/services/blog.service.js" />

@@ -1,72 +1,70 @@
 ﻿<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>@ViewData["Title"]</title>
+<head>
+    <base href="/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
 
-        <!-- DEVELOPMENT ENVIRONMENT -->
-        <environment names="Development">
-            <!-- CSS -->
-            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-            <link rel="stylesheet" href="~/css/site.css" />
-            <!-- JS -->
-            <script src="~/lib/system.js"></script>
-            <script src="~/lib/jquery/dist/jquery.js"></script>
-            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-            <script src="~/lib/rx.js"></script>
-            <script src="~/lib/typescript.js"></script>
-            <script src="~/lib/angular2/angular2.dev.js"></script>
-            <script src="~/lib/angular2/angular2-polyfills.js"></script>
-            <script src="~/lib/angular2/http.dev.js"></script>
-            <script src="~/lib/angular2/router.dev.js"></script>
-        </environment>
+    <!-- DEVELOPMENT ENVIRONMENT -->
+    <environment names="Development">
+        <!-- CSS -->
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/app/site.css" />
+        <!-- JS -->
+        <script src="~/lib/system.js"></script>
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/rx.js"></script>
+        <script src="~/lib/typescript.js"></script>
+        <script src="~/lib/angular2/angular2.dev.js"></script>
+        <script src="~/lib/angular2/angular2-polyfills.js"></script>
+        <script src="~/lib/angular2/http.dev.js"></script>
+        <script src="~/lib/angular2/router.dev.js"></script>
+    </environment>
 
-        <!-- STAGING, PRODUCTION ENVIRONMENT -->
-        <environment names="Staging,Production">
-            <!-- CSS -->
-            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
-                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-            <!-- JS -->
-            <script src="~/lib/system.min.js"></script>
-            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
-                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                    asp-fallback-test="window.jQuery">
-            </script>
-            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
-                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
-            </script>
-            <script src="~/js/rx.min.js"></script>
-            <script src="~/js/typescript.min.js"></script>
-            <script src="~/js/angular2/angular2.dev.min.js"></script>
-            <script src="~/js/angular2/angular2-polyfills.min.js"></script>
-            <script src="~/js/angular2/http.dev.min.js"></script>
-            <script src="~/js/angular2/router.dev.min.js"></script>
-        </environment>
-
-        
-    </head>
-    <body>
-
-        <!-- CONFIGURE SYSTEMJS -->
-        <script>
-            System.config({
-                packages: {
-                    app: {
-                        format: 'register',
-                        defaultextension: 'js'
-                    }
-                }
-            });
-            System.import('app/boot')
-                .then(null, console.error.bind(console));
+    <!-- STAGING, PRODUCTION ENVIRONMENT -->
+    <environment names="Staging,Production">
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <!-- JS -->
+        <script src="~/lib/system.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
         </script>
-        <div>
-            @RenderBody()
-        </div>
-        @RenderSection("scripts", required: false)
-    </body>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        </script>
+        <script src="~/js/rx.min.js"></script>
+        <script src="~/js/typescript.min.js"></script>
+        <script src="~/js/angular2/angular2.dev.min.js"></script>
+        <script src="~/js/angular2/angular2-polyfills.min.js"></script>
+        <script src="~/js/angular2/http.dev.min.js"></script>
+        <script src="~/js/angular2/router.dev.min.js"></script>
+    </environment>
+    <!-- CONFIGURE SYSTEMJS -->
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultextension: 'js'
+                }
+            }
+        });
+        System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
 </html>

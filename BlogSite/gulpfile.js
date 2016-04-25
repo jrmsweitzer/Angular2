@@ -60,10 +60,6 @@ gulp.task('copy-min-js', function () {
 });
 
 gulp.task('copy-css', function () {
-    _.forEach(css, function (file, _) {
-        gulp.src(file)
-            .pipe(gulp.dest('./wwwroot/css'))
-    });
     _.forEach(fonts, function (file, _) {
         gulp.src(file)
             .pipe(gulp.dest('./wwwroot/fonts'))
