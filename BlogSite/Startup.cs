@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BlogSite.Models;
+using BlogSite.Services;
+using BlogSite.Services.Impl;
+using Glimpse;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -9,10 +9,6 @@ using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using BlogSite.Models;
-using BlogSite.Services;
-using BlogSite.Services.Impl;
-using Glimpse;
 
 namespace BlogSite
 {
@@ -57,7 +53,7 @@ namespace BlogSite
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-            
+
             services.AddSingleton<IBlogService, BlogService>();
         }
 
@@ -100,9 +96,13 @@ namespace BlogSite
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("default",
+                    "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute("spa-fallback",
+                                "{*anything}",
+                                new { controller = "Home", action = "Index" });
+                routes.MapWebApiRoute("defaultApi",
+                                      "api/{controller}/{id?}");
             });
 
             SampleData.Initialize(app.ApplicationServices);
