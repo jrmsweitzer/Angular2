@@ -1,0 +1,13 @@
+﻿<div class="container box" *ngFor="#blog of blogs">
+    <div class="col-md-3">
+        <a [routerLink]="['BlogDetail', {id:blog.id}]">
+            <img src="/img/intro-pic.jpg" class="col-md-12" />
+        </a>
+    </div>
+    <div class="col-md-9">
+        <a [routerLink]="['BlogDetail', {id:blog.id}]">
+            {{blog.title}}
+        </a><span> - </span>
+        {{blog.UserUserName}}
+    </div>
+</div>

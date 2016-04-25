@@ -1,9 +1,8 @@
-﻿import {Component} from "angular2/core";
+import {Component} from "angular2/core";
 import {RouteConfig, ROUTER_PROVIDERS} from "angular2/router";
 
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {BlogComponent} from "./blog/blog.component";
-import {BlogService} from "./services/blog.service";
+import {DashboardComponent} from "./dashboard.component";
+import {BlogComponent} from "./blog.component";
 
 declare var System: any;
 
@@ -11,9 +10,7 @@ declare var System: any;
     selector: "app",
     templateUrl: "app/app.component.html",
     styleUrls: ["app/app.component.css"],
-    providers: [
-        ROUTER_PROVIDERS,
-        BlogService]
+    providers: [ROUTER_PROVIDERS]
 })
 
 @RouteConfig([

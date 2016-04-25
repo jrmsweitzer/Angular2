@@ -93,6 +93,7 @@ var TYPE_SCRIPT_REPORT = tslint.report("prose", {
 });
 
 var TYPE_SCRIPT_FILES = ["wwwroot/app/*.ts"];
+var BIN = "bin";
 
 // The actual task to run
 gulp.task('TSLint:All', function () {
