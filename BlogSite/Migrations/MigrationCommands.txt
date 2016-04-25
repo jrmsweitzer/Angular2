@@ -1,0 +1,3 @@
+dnu restore
+dnx ef migrations add {MigrationName}
+dnx ef database update
