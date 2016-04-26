@@ -10,6 +10,7 @@ import {BlogService} from "../services/blog.service";
 
 export class BlogDetailComponent implements OnInit {
     blog: IBlog;
+    isLoading: boolean = false;
 
     constructor(
         private _blogService: BlogService,
@@ -17,9 +18,18 @@ export class BlogDetailComponent implements OnInit {
         private _router: Router) { }
 
     ngOnInit() {
+        this.get();
+    }
+
+    get() {
+        this.isLoading = true;
         let id = +this._routeParams.get("id");
-        //this._blogService.getBlog(id)
-        //    .then(blog => this.blog = blog);
+        this._blogService.getBlog(id, json => {
+            if (json) {
+                this.blog = json
+                this.isLoading = false;
+            }
+        });
     }
 
     goBack() {

@@ -1,13 +1,18 @@
 ﻿<div class="container box" *ngFor="#blog of blogs">
     <div class="col-md-3">
-        <a [routerLink]="['BlogDetail', {id:blog.id}]">
-            <img src="/img/intro-pic.jpg" class="col-md-12" />
+        <a [routerLink]="['BlogDetail', {id:blog.BlogID}]">
+            <img src="app/img/intro-pic.jpg" class="col-md-12" />
         </a>
     </div>
     <div class="col-md-9">
-        <a [routerLink]="['BlogDetail', {id:blog.id}]">
-            {{blog.title}}
+        <a [routerLink]="['BlogDetail', {id:blog.BlogID}]">
+            {{blog.Title}}
         </a><span> - </span>
-        {{blog.UserUserName}}
+        <p>{{blog.ContentPreview}}</p>
+        <div class="seeMore">
+            <a [routerLink]="['BlogDetail', {id:blog.BlogID}]">
+                See More...
+            </a>
+        </div>
     </div>
 </div>

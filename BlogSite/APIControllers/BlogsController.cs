@@ -6,6 +6,7 @@ using Microsoft.Data.Entity;
 
 namespace BlogSite.APIControllers
 {
+    [Produces("application/json")]
     [Route("api/Blogs")]
     public class BlogsController : Controller
     {
@@ -18,7 +19,7 @@ namespace BlogSite.APIControllers
 
         // GET: api/Blogs
         [HttpGet]
-        public JsonResult GetBlogs()
+        public JsonResult Get()
         {
             return new JsonResult(new {
                 blogs = _blogService.Get()
@@ -27,7 +28,7 @@ namespace BlogSite.APIControllers
 
         // GET: api/Blogs/5
         [HttpGet("{id}", Name = "GetBlog")]
-        public IActionResult GetBlog([FromRoute] int id)
+        public IActionResult Get([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {

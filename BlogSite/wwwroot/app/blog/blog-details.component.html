@@ -1,10 +1,11 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+﻿<div *ngIf="blog">
+    <h2>{{blog.Title}}</h2>
+    <input [(ngModel)]="blog.title" placeholder="Title" />
+    <div>
+        <label>id: </label>{{blog.BlogID}}
+    </div>
+    <div>
+        <textarea [(ngModel)]="blog.Content" placeholder="Post"></textarea>
+    </div>
+    <button (click)="goBack()">Back</button>
+</div>

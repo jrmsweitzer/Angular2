@@ -37,7 +37,7 @@ System.register(["angular2/core", "angular2/router", "../services/blog.service"]
                 BlogListComponent.prototype.get = function () {
                     var _this = this;
                     this.isLoading = true;
-                    this._blogService.get(function (json) {
+                    this._blogService.getBlogs(function (json) {
                         if (json) {
                             _this.blogs = json.blogs;
                             _this.isLoading = false;

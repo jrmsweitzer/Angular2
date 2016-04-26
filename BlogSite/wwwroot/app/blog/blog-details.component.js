@@ -29,11 +29,21 @@ System.register(["angular2/core", "angular2/router", "../services/blog.service"]
                     this._blogService = _blogService;
                     this._routeParams = _routeParams;
                     this._router = _router;
+                    this.isLoading = false;
                 }
                 BlogDetailComponent.prototype.ngOnInit = function () {
+                    this.get();
+                };
+                BlogDetailComponent.prototype.get = function () {
+                    var _this = this;
+                    this.isLoading = true;
                     var id = +this._routeParams.get("id");
-                    //this._blogService.getBlog(id)
-                    //    .then(blog => this.blog = blog);
+                    this._blogService.getBlog(id, function (json) {
+                        if (json) {
+                            _this.blog = json;
+                            _this.isLoading = false;
+                        }
+                    });
                 };
                 BlogDetailComponent.prototype.goBack = function () {
                     window.history.back();

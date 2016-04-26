@@ -27,7 +27,7 @@ export class BlogListComponent implements OnInit {
 
     get() {
         this.isLoading = true;
-        this._blogService.get(json => {
+        this._blogService.getBlogs(json => {
             if (json) {
                 this.blogs = json.blogs;
                 this.isLoading = false;
