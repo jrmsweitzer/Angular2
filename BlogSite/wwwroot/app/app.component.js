@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/router", "./dashboard/dashboard.component", "./blog/blog.component", "./services/blog.service"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/router", "./dashboard/dashboard.component", "./blog/blog.component", "./services/blog.service", 'rxjs/Rx'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -28,7 +28,8 @@ System.register(["angular2/core", "angular2/router", "./dashboard/dashboard.comp
             },
             function (blog_service_1_1) {
                 blog_service_1 = blog_service_1_1;
-            }],
+            },
+            function (_1) {}],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
@@ -41,7 +42,8 @@ System.register(["angular2/core", "angular2/router", "./dashboard/dashboard.comp
                         styleUrls: ["app/app.component.css"],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
-                            blog_service_1.BlogService]
+                            blog_service_1.BlogService],
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
                         {

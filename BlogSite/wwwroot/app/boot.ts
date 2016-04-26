@@ -4,6 +4,7 @@ import {HTTP_PROVIDERS} from "angular2/http";
 import {AppComponent} from "./app.component";
 import {PLATFORM_DIRECTIVES, provide} from "angular2/core";
 
+
 bootstrap(AppComponent, [
     ROUTER_PROVIDERS,
     HTTP_PROVIDERS,

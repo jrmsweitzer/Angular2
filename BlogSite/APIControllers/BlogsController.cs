@@ -3,11 +3,9 @@ using BlogSite.Services;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
-using System.Collections.Generic;
 
 namespace BlogSite.APIControllers
 {
-    [Produces("application/json")]
     [Route("api/Blogs")]
     public class BlogsController : Controller
     {
@@ -20,9 +18,11 @@ namespace BlogSite.APIControllers
 
         // GET: api/Blogs
         [HttpGet]
-        public IEnumerable<Blog> GetBlogs()
+        public JsonResult GetBlogs()
         {
-            return _blogService.Get();
+            return new JsonResult(new {
+                blogs = _blogService.Get()
+            });
         }
 
         // GET: api/Blogs/5

@@ -39,6 +39,7 @@ System.register(["angular2/core", "angular2/router", "./blog-create.component", 
                 BlogComponent = __decorate([
                     core_1.Component({
                         template: "<router-outlet></router-outlet>",
+                        directives: [router_1.RouterOutlet],
                         providers: [blog_service_1.BlogService]
                     }),
                     router_1.RouteConfig([

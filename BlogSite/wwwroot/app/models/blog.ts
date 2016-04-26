@@ -1,6 +1,8 @@
 ﻿export interface IBlog {
-    id: number;
-    userid: number;
-    title: string;
-    post: string;
+    BlogID: number;
+    Title: string;
+    Content: string;
+    ContentPreview: string;
+    ApplicationUserID: number;
+    Creator: any;
 };

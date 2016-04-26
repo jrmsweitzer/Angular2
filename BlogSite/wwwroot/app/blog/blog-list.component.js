@@ -25,29 +25,37 @@ System.register(["angular2/core", "angular2/router", "../services/blog.service"]
             }],
         execute: function() {
             BlogListComponent = (function () {
-                function BlogListComponent(_blogService, _router) {
+                function BlogListComponent(_blogService, _router, _routeParams) {
                     this._blogService = _blogService;
                     this._router = _router;
-                    this.title = "Read our Blogs!";
+                    this._routeParams = _routeParams;
+                    this.isLoading = false;
                 }
                 BlogListComponent.prototype.ngOnInit = function () {
-                    this.getBlogs();
+                    this.get();
+                };
+                BlogListComponent.prototype.get = function () {
+                    var _this = this;
+                    this.isLoading = true;
+                    this._blogService.get(function (json) {
+                        if (json) {
+                            _this.blogs = json.blogs;
+                            _this.isLoading = false;
+                        }
+                    });
                 };
                 BlogListComponent.prototype.onSelect = function (blog) {
                     this.selectedBlog = blog;
                 };
-                BlogListComponent.prototype.getBlogs = function () {
-                    //this._blogService.getBlogs().then(blogs => this.blogs = blogs);
-                };
                 BlogListComponent.prototype.gotoDetail = function () {
-                    this._router.navigate(["BlogDetail", { id: this.selectedBlog.id }]);
+                    this._router.navigate(["BlogDetail", { id: this.selectedBlog.BlogID }]);
                 };
                 BlogListComponent = __decorate([
                     core_1.Component({
                         selector: "my-blogs",
                         templateUrl: "app/blog/blog-list.component.html"
                     }), 
-                    __metadata('design:paramtypes', [blog_service_1.BlogService, router_1.Router])
+                    __metadata('design:paramtypes', [blog_service_1.BlogService, router_1.Router, router_1.RouteParams])
                 ], BlogListComponent);
                 return BlogListComponent;
             }());
