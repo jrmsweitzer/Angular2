@@ -35,7 +35,6 @@ export class BlogListComponent implements OnInit {
         });
     }
 
-
     onSelect(blog: IBlog) {
         this.selectedBlog = blog;
     }

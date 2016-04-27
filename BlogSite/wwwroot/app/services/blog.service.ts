@@ -11,8 +11,8 @@ export class BlogService {
         this.http = http;
     }
 
-    getBlog(id: number, onNext: (json: any) => void) {
-        this.http.get(BlogService.PATH + id).map(
+    getBlog(title: string, onNext: (json: any) => void) {
+        this.http.get(BlogService.PATH + title).map(
             response => response.json())
             .subscribe(onNext);
     }

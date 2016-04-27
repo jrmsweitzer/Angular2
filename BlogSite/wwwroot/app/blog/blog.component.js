@@ -54,7 +54,7 @@ System.register(["angular2/core", "angular2/router", "./blog-create.component", 
                             component: blog_create_component_1.BlogCreateComponent
                         },
                         {
-                            path: '/detail/:id',
+                            path: '/:title',
                             name: "BlogDetail",
                             component: blog_details_component_1.BlogDetailComponent
                         }

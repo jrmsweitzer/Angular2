@@ -26,16 +26,16 @@ namespace BlogSite.APIControllers
             });
         }
 
-        // GET: api/Blogs/5
-        [HttpGet("{id}", Name = "GetBlog")]
-        public IActionResult Get([FromRoute] int id)
+        // GET: api/Blogs/Example%20Blog
+        [HttpGet("{title}", Name = "GetBlog")]
+        public IActionResult Get([FromRoute] string title)
         {
             if (!ModelState.IsValid)
             {
                 return HttpBadRequest(ModelState);
             }
 
-            Blog blog = _blogService.Get(id);
+            Blog blog = _blogService.Get(title);
 
             if (blog == null)
             {

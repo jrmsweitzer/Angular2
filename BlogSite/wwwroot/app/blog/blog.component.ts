@@ -23,7 +23,7 @@ import {BlogService} from "../services/blog.service";
         component: BlogCreateComponent
     },
     {
-        path: '/detail/:id',
+        path: '/:title',
         name: "BlogDetail",
         component: BlogDetailComponent
     }

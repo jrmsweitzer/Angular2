@@ -27,12 +27,17 @@ namespace BlogSite.Services.Impl
         {
             _context.Blogs.Remove(blog);
             _context.SaveChanges();
-            return Get(blog.BlogID);
+            return Get(blog.Title);
         }
 
         public IEnumerable<Blog> Get()
         {
             return _context.Blogs;
+        }
+
+        public Blog Get(string title)
+        {
+            return _context.Blogs.Single(b => b.Title.Equals(title));
         }
 
         public Blog Get(int id)

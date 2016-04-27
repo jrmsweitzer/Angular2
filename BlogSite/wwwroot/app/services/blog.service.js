@@ -25,8 +25,8 @@ System.register(["angular2/core", "angular2/http"], function(exports_1, context_
                 function BlogService(http) {
                     this.http = http;
                 }
-                BlogService.prototype.getBlog = function (id, onNext) {
-                    this.http.get(BlogService.PATH + id).map(function (response) { return response.json(); })
+                BlogService.prototype.getBlog = function (title, onNext) {
+                    this.http.get(BlogService.PATH + title).map(function (response) { return response.json(); })
                         .subscribe(onNext);
                 };
                 BlogService.prototype.getBlogs = function (onNext) {

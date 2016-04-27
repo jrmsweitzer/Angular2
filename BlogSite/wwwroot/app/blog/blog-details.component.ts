@@ -23,8 +23,8 @@ export class BlogDetailComponent implements OnInit {
 
     get() {
         this.isLoading = true;
-        let id = +this._routeParams.get("id");
-        this._blogService.getBlog(id, json => {
+        let title: string = this._routeParams.get("title");
+        this._blogService.getBlog(title, json => {
             if (json) {
                 this.blog = json
                 this.isLoading = false;

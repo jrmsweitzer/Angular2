@@ -37,8 +37,8 @@ System.register(["angular2/core", "angular2/router", "../services/blog.service"]
                 BlogDetailComponent.prototype.get = function () {
                     var _this = this;
                     this.isLoading = true;
-                    var id = +this._routeParams.get("id");
-                    this._blogService.getBlog(id, function (json) {
+                    var title = this._routeParams.get("title");
+                    this._blogService.getBlog(title, function (json) {
                         if (json) {
                             _this.blog = json;
                             _this.isLoading = false;
