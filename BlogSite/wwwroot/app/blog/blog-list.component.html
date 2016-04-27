@@ -1,14 +1,26 @@
-﻿<div class="container box" *ngFor="#blog of blogs">
+﻿<div class="container box" *ngFor="#blog of blogs; #index = index">
     <div class="col-md-3">
+
+        <!-- ImageLink -->
         <a [routerLink]="['BlogDetail', {title: blog.Title}]">
-            <img src="app/img/intro-pic.jpg" class="col-md-12" />
+            <img class="col-md-12"
+                 src="app/img/intro-pic.jpg"
+                 name="imageforblog{{index + 1}}" />
         </a>
+
     </div>
+
     <div class="col-md-9">
-        <a [routerLink]="['BlogDetail', {title: blog.Title}]">
+
+        <!-- Title -->
+        <a [routerLink]="['BlogDetail', {title: blog.Title}]"
+           name="titleforblog{{index + 1}}">
             {{blog.Title}}
         </a><span> - </span>
+
+        <p>{{blog.CreateDate | date}}</p>
         <p>{{blog.ContentPreview}}</p>
+
         <div class="seeMore">
             <a [routerLink]="['BlogDetail', {title: blog.Title}]">
                 See More...

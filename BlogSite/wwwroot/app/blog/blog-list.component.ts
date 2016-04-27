@@ -29,10 +29,19 @@ export class BlogListComponent implements OnInit {
         this.isLoading = true;
         this._blogService.getBlogs(json => {
             if (json) {
-                this.blogs = json.blogs;
+                this.convertDateTimeToDate(json.blogs);
                 this.isLoading = false;
             }
         });
+    }
+
+    convertDateTimeToDate(blogs: IBlog[]) {
+        var returnedArray: IBlog[] = [];
+        for (var blog of blogs) {
+            blog.CreateDate = new Date(blog.CreateDate);
+            returnedArray.push(blog);
+        }
+        this.blogs = returnedArray;
     }
 
     onSelect(blog: IBlog) {

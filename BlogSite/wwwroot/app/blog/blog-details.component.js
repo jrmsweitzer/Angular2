@@ -40,10 +40,15 @@ System.register(["angular2/core", "angular2/router", "../services/blog.service"]
                     var title = this._routeParams.get("title");
                     this._blogService.getBlog(title, function (json) {
                         if (json) {
-                            _this.blog = json;
+                            _this.convertDateTimeToDate(json);
                             _this.isLoading = false;
                         }
                     });
+                };
+                BlogDetailComponent.prototype.convertDateTimeToDate = function (json) {
+                    var blog = json;
+                    blog.CreateDate = new Date(blog.CreateDate);
+                    this.blog = blog;
                 };
                 BlogDetailComponent.prototype.goBack = function () {
                     window.history.back();

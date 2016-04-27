@@ -6,10 +6,18 @@
             <img src="../app/img/favicon.png" />
         </li>
         <li class="top-padding">
-            <a [routerLink]="['Dashboard']">Home</a><span> | </span>
-            <a [routerLink]="['Blog', 'BlogCreate']">Write a blog!</a><span> | </span>
+
+            <a [routerLink]="['Dashboard']"
+               name="nav-home">Home</a><span> | </span>
+
+            <a [routerLink]="['Blog', 'BlogCreate']"
+               name="nav-writeablog">Write a blog!</a><span> | </span>
+
             <a>Administration</a><span> | </span>
-            <a [routerLink]="['Blog', 'BlogList']">See all blogs</a><span> | </span>
+
+            <a [routerLink]="['Blog', 'BlogList']"
+               name="nav-seeallblogs">See all blogs</a><span> | </span>
+
             <a>See all tags</a>
         </li>
     </ul>

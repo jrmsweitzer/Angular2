@@ -26,10 +26,17 @@ export class BlogDetailComponent implements OnInit {
         let title: string = this._routeParams.get("title");
         this._blogService.getBlog(title, json => {
             if (json) {
-                this.blog = json
+                this.convertDateTimeToDate(json);
                 this.isLoading = false;
             }
         });
+    }
+
+    convertDateTimeToDate(json) {
+        var blog: IBlog = json;
+        blog.CreateDate = new Date(blog.CreateDate);
+
+        this.blog = blog;
     }
 
     goBack() {

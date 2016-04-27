@@ -5,8 +5,5 @@
     ContentPreview: string;
     ApplicationUserID: number;
     Creator: any;
-    CreateDate: string;
-    CreateYear: string;
-    CreateMonth: string;
-    CreateDay: string;
+    CreateDate: any;
 };

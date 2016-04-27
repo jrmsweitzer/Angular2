@@ -39,21 +39,19 @@ System.register(["angular2/core", "angular2/router", "../services/blog.service"]
                     this.isLoading = true;
                     this._blogService.getBlogs(function (json) {
                         if (json) {
-                            _this.addYMDToBlogs(json.blogs);
+                            _this.convertDateTimeToDate(json.blogs);
                             _this.isLoading = false;
                         }
                     });
                 };
-                BlogListComponent.prototype.addYMDToBlogs = function (blogs) {
-                    this.blogs = [];
+                BlogListComponent.prototype.convertDateTimeToDate = function (blogs) {
+                    var returnedArray = [];
                     for (var _i = 0, blogs_1 = blogs; _i < blogs_1.length; _i++) {
                         var blog = blogs_1[_i];
-                        var splitblog = blog.CreateDate.split("-");
-                        blog.CreateYear = splitblog[0];
-                        blog.CreateMonth = splitblog[1];
-                        blog.CreateDay = splitblog[2].split("T")[0];
-                        this.blogs.push(blog);
+                        blog.CreateDate = new Date(blog.CreateDate);
+                        returnedArray.push(blog);
                     }
+                    this.blogs = returnedArray;
                 };
                 BlogListComponent.prototype.onSelect = function (blog) {
                     this.selectedBlog = blog;
