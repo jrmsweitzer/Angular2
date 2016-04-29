@@ -9,6 +9,7 @@
 /// <reference path="app/boot.js" />
 /// <reference path="app/dashboard/dashboard.component.js" />
 /// <reference path="app/models/blog.js" />
+/// <reference path="app/services/authentication.service.js" />
 /// <reference path="app/services/blog.service.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

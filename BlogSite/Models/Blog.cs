@@ -16,9 +16,5 @@ namespace BlogSite.Models
         public string Content { get; set; }
         public string ContentPreview { get; set; }
         public DateTime CreateDate { get; set; }
-
-        [ScaffoldColumn(false)]
-        public int ApplicationUserID { get; set; }
-        public virtual ApplicationUser Creator { get; set; } 
     }
 }

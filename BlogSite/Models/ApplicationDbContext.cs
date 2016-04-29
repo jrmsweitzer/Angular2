@@ -7,7 +7,7 @@ using Microsoft.Data.Entity;
 
 namespace BlogSite.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : DbContext
     {
         protected override void OnModelCreating(ModelBuilder builder)
         {

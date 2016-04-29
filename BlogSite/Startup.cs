@@ -43,10 +43,6 @@ namespace BlogSite
                 .AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
-
             services.AddGlimpse();
             services.AddMvc();
 
@@ -90,7 +86,6 @@ namespace BlogSite
 
             app.UseStaticFiles();
             app.UseGlimpse();
-            app.UseIdentity();
 
             // To configure external authentication please see http://go.microsoft.com/fwlink/?LinkID=532715
 
